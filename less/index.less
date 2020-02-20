@@ -1,59 +1,351 @@
+// Imports
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap");
+
+// Vars
+@main-font: "Roboto", arial;
+@primary-color: #ff3b42;
+@secondary-color: #202f3d;
+@white: #fdfdfd;
+@gray: #838b93;
+
+.flex{
+	display:flex;
+}
+
+.redtext{
+	color: @primary-color;
+}
+
 // Is this working?
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-family: @main-font;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Header
+header {
+  height: 20vh;
+  width: 100vw;
+  padding: 0 3vw;
+
+  .flex();
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: @primary-color;
+
+  h1,
+  p {
+    text-transform: uppercase;
+    letter-spacing: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: @white;
+  }
+
+  p {
+    color: @secondary-color;
+    margin-top: 10px;
+  }
+}
+
+// Main
+.main {
+  height: 80vh;
+  width: 100vw;
+
+  .flex();
+
+  @media only screen and (max-width: 800px){
+	  flex-direction: column;
+  }
+
+  // Left
+  &_left {
     height: 100%;
-}
+    flex-basis: 30%;
 
+    padding: 30px 3%;
+    background: @secondary-color;
+
+    h1 {
+      font-size: 1rem;
+	  font-weight: bold;
+	  .redtext();
+      text-transform: uppercase;
+    }
+
+    p,
+    a,
+    li {
+      color: @white;
+      font-weight: 300;
+    }
+
+    section,
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .personalskills,
+    .proskills {
+      ul li {
+        text-transform: capitalize;
+        font-size: 0.9rem;
+
+        & + li {
+          margin-top: 5px;
+        }
+      }
+    }
+
+    .contact {
+      p {
+        font-size: 0.9rem;
+
+        &:nth-of-type(2) {
+          margin: 5px 0;
+        }
+      }
+    }
+
+    .references {
+      div {
+        margin-bottom: 20px;
+        h1 {
+          color: @white;
+          font-weight: 400;
+          font-size: 0.8rem;
+          margin-bottom: 0;
+        }
+
+        p {
+          margin: 7px 0 4px;
+        }
+
+        a,
+        p {
+          color: @gray;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  &_right {
+    height: 80vh;
+    flex-basis: 70%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1% 0 1% 5%;
+
+    & > section:not(:first-of-type) {
+	  margin-top: 2%;
+      border-top: 4px solid @primary-color;
+      padding-top: 2%;
+    }
+
+    section > h1 {
+      color: @secondary-color;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 3px;
+	  margin-bottom: 20px;
+    }
+
+    div > p,
+    div > ul li,
+    section > p {
+      color: @gray;
+    }
+
+    div > h1 {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .profile {
+      p {
+        margin-top: 20px;
+        padding-right: 30%;
+      }
+    }
+
+    .experience {
+      .exp {
+		  &_wrapper:nth-child(3){
+			  margin-top: 20px;
+		  }
+		  &_companyInfo {
+			  margin-top: 5px;
+		  }
+        &_jobDuties {
+          margin-left: 30px;
+          margin: 10px 30px;
+          li + li {
+            margin-top: 5px;
+          }
+        }
+      }
+	}
+
+	section.education {
+		margin-top: 10px;
+	}
+
+	section.awards {
+		.award { 
+			margin-bottom: 10px;
+			&_info {
+				margin-top: 5px;
+			}
+		}
+	}
+  }
+}
